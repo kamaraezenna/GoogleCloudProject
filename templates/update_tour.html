@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Tour</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+    <div class="container mt-5">
+        <h2 class="text-center mb-4">Update Tour</h2>
+        <form method="POST" class="p-4 bg-white rounded shadow">
+            <div class="mb-3">
+                <label for="destination" class="form-label">Destination</label>
+                <input type="text" id="destination" name="destination" class="form-control" value="{{ tour.destination }}" required>
+            </div>
+            <div class="mb-3">
+                <label for="category" class="form-label">Category</label>
+                <select id="category" name="category" class="form-select" required>
+                    <option value="Adventure" {% if tour.category =='Adventure' %}selected{% endif %}>Adventure</option>
+                    <option value="Relaxation" {% if tour.category =='Relaxation' %}selected{% endif %}>Relaxation</option>
+                    <option value="Cultural" {% if tour.category =='Cultural' %}selected{% endif %}>Cultural</option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label for="duration" class="form-label">Duration (days)</label>
+                <input type="number" id="duration" name="duration" class="form-control" value="{{ tour.duration }}" required>
+            </div>
+            <div class="mb-3">
+                <label for="service" class="form-label">Service</label>
+                <select id="service" name="service" class="form-select" required>
+                    <option value="First class" {% if tour.service =='First class' %}selected{% endif %}>First class</option>
+                    <option value="Regular" {% if tour.service =='Regular' %}selected{% endif %}>Regular</option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label for="price" class="form-label">Price</label>
+                <input type="number" id="price" name="price" step="0.01" class="form-control" value="{{ tour.price }}" required>
+            </div>
+            <div class="mb-3">
+                <label for="availability" class="form-label">Availability</label>
+                <select id="availability" name="availability" class="form-select">
+                    <option value="Available" {% if tour.availability =='Available' %}selected{% endif %}>Available</option>
+                    <option value="Not Available" {% if tour.availability =='Not Available' %}selected{% endif %}>Not Available</option>
+                </select>
+            </div>
+            <button type="submit" class="btn btn-warning w-100">Update Tour</button>
+        </form>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
